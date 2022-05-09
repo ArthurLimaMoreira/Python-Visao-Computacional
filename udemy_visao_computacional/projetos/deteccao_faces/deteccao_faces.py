@@ -4,14 +4,14 @@ import cv2 as cv
 
 #   IMPORTAÇÃO DA IMAGEM E CONVERSÕES
 img = cv.imread('udemy_visao_computacional\Images\people1.jpg')    #IMPORTANDO IMAGEM
-img = cv.resize(img, (800, 600))                          #REDIMENSIONANDO IMAGEM PARA 800X600 PIXELS
+img = cv.resize(img, (800,600))                          #REDIMENSIONANDO IMAGEM PARA 800X600 PIXELS
 imagem  = cv.cvtColor(img, cv.COLOR_BGR2GRAY)                #CONVERTENDO PARA ESCALA DE CINZA (CANAL ÚNICO)
 
 
 #   DETECCAO DAS FACES
 detector = cv.CascadeClassifier('udemy_visao_computacional\cascades\haarcascade_frontalface_default.xml')   #busca arquivo .xml do classificador de faces
 
-deteccao = detector.detectMultiScale(imagem)    #realiza a detecção das faces na imagem
+deteccao = detector.detectMultiScale(imagem, scaleFactor=1.098)    #realiza a detecção das faces na imagem
 
 # print(deteccao)                                 #mostra no terminal as corrdenadas XY das faces detectadas (início delas e tamanho da face detectada)
 
